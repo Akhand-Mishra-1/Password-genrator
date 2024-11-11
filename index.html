@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
+
+</head>
+<body>
+  <div class="container">
+    <h1>Password Generator</h1>
+    <div class="output">
+      <input id="ip" type="text" placeholder="P4$5W0rD!" readonly>
+      <button class="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+    </div>
+    <div class="options">
+      <label for="length">Character Length</label>
+      <div class="length-slider">
+        <input type="range" id="length" min="0" max="20" value="0" id="inputslider" >
+        <span id="slidervalue"  >4</span>
+      </div>
+      <div class="checkboxes">
+        <label><input id="up letters" type="checkbox" > Include Uppercase Letters (A-Z)</label>
+        <label><input id="lo letters" type="checkbox" > Include Lowercase Letters (a-z)</label>
+        <label><input id="numbers" type="checkbox" > Include Numbers (0-9)</label>
+        <label><input id="Symbols" type="checkbox" > Include Symbols (!-*)</label>
+      </div>
+     
+      <button id="genbtn" class="generate-btn" disabled>GENERATE ➔</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
