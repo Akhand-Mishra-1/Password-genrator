@@ -56,7 +56,7 @@
     padding: 10px;
     color: #80ffaa;
     font-size: 1.2rem;
-    cursor: not-allowed;
+    cursor: pointer;
   }
 .copy-btn:click{
     cursor: pointer;
@@ -113,7 +113,7 @@
     font-weight: bold;
     border: none;
     border-radius: 5px;
-    cursor: allowed;
+    cursor: pointer;
     margin-top: 80px;
   }
   
