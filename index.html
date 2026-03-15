@@ -1,36 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Password Generator</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+    <i class="fa-solid fa-moon" id="themeIcon"></i>
+  </button>
+
   <div class="container">
-    <h1>Password Generator</h1>
-    <div class="output">
-      <input id="ip" type="text" placeholder="P4$5W0rD!" readonly>
-      <button class="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+    <div class="header">
+      <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h1>PassForge</h1>
+      <p class="subtitle">Generate bulletproof passwords</p>
     </div>
+
+
+    <div class="output-card">
+      <input id="ip" type="text" placeholder="P4$5W0rD!" readonly>
+      <button class="copy-btn" id="copyBtn" title="Copy to clipboard">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+    </div>
+
+
+    <div class="strength-section">
+      <span class="strength-label">Strength</span>
+      <div class="strength-bar-track">
+        <div class="strength-bar" id="strengthBar"></div>
+      </div>
+      <span class="strength-text" id="strengthText">—</span>
+    </div>
+
     <div class="options">
-      <label for="length">Character Length</label>
-      <div class="length-slider">
-        <input type="range" id="length" min="0" max="20" value="0" id="inputslider" >
-        <span id="slidervalue"  ></span>
+
+      <div class="option-group">
+        <div class="option-header">
+          <label for="length">Character Length</label>
+          <span class="length-display" id="slidervalue">0</span>
+        </div>
+        <input type="range" id="length" min="4" max="32" value="12">
+        <div class="range-labels"><span>4</span><span>32</span></div>
       </div>
-      <div class="checkboxes">
-        <label><input id="up letters" type="checkbox" > Include Uppercase Letters (A-Z)</label>
-        <label><input id="lo letters" type="checkbox" > Include Lowercase Letters (a-z)</label>
-        <label><input id="numbers" type="checkbox" > Include Numbers (0-9)</label>
-        <label><input id="Symbols" type="checkbox" > Include Symbols (!-*)</label>
+
+   
+      <div class="option-group">
+        <label class="section-label">Character Types</label>
+        <div class="checkboxes">
+          <label class="checkbox-item">
+            <input id="up-letters" type="checkbox" checked>
+            <span class="checkmark"></span>
+            <span class="check-text"><b>A–Z</b> Uppercase</span>
+          </label>
+          <label class="checkbox-item">
+            <input id="lo-letters" type="checkbox" checked>
+            <span class="checkmark"></span>
+            <span class="check-text"><b>a–z</b> Lowercase</span>
+          </label>
+          <label class="checkbox-item">
+            <input id="numbers" type="checkbox">
+            <span class="checkmark"></span>
+            <span class="check-text"><b>0–9</b> Numbers</span>
+          </label>
+          <label class="checkbox-item">
+            <input id="symbols" type="checkbox">
+            <span class="checkmark"></span>
+            <span class="check-text"><b>!@#</b> Symbols</span>
+          </label>
+        </div>
       </div>
-     
-      <button id="genbtn" class="generate-btn" disabled>GENERATE ➔</button>
+
+      
+      <div class="option-group">
+        <label class="section-label" for="excludeChars">Exclude Characters</label>
+        <input type="text" id="excludeChars" class="exclude-input" placeholder="e.g. 0Ol1 (look-alike chars)">
+      </div>
+
+
+      <button id="genbtn" class="generate-btn">
+        <i class="fa-solid fa-bolt"></i> GENERATE
+      </button>
+    </div>
+
+
+    <div class="history-section" id="historySection">
+      <div class="history-header">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>Recent Passwords</span>
+        <button class="clear-history-btn" id="clearHistory">Clear</button>
+      </div>
+      <ul class="history-list" id="historyList">
+        <li class="history-empty">No passwords generated yet</li>
+      </ul>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
